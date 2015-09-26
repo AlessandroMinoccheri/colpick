@@ -1,0 +1,6 @@
+{
+  "name": "colpick",
+  "description": "A jQuery Plugin to create an easy color picker",
+  "version": "0.0.1",
+  "keywords": ["javascript", "jquery", "color", "picker"],
+}
