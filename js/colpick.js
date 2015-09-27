@@ -9,6 +9,8 @@ V 0.0.1
         colpick: function (argumentOptions) {
             var defaults = {
                 color: '#000000',
+                width: '15',
+                height: '15'
             };
 
             var options = $.extend(defaults, argumentOptions);
@@ -16,6 +18,10 @@ V 0.0.1
             return this.each(function () {
                 var o = options;
                 var obj = $(this);
+
+                obj.css("background", o.color);
+                obj.css("width", o.width + 'px');
+                obj.css("height", o.height + 'px');
             });
         }
     });
