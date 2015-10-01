@@ -22,6 +22,15 @@ V 0.0.1
                 obj.css("background", o.color);
                 obj.css("width", o.width + 'px');
                 obj.css("height", o.height + 'px');
+
+                obj.click(function(){
+                    if(obj.find('.colpick-popup').length > 0){
+                        obj.find('.colpick-popup').remove();
+                    }
+                    else{
+                        obj.append('<div class="colpick-popup"></div>');
+                    }
+                });
             });
         }
     });
