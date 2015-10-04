@@ -32,28 +32,36 @@ V 0.0.1
                 var color = endColor;
                 var colDiv = '';
                 var cont = 0;
-
-                
+                var contGeneral = 0;                
                 obj.click(function(){
                     if(obj.find('.colpick-popup').length > 0){
                         obj.find('.colpick-popup').remove();
                     }
                     else{
                         obj.append('<div class="colpick-popup">' + colDiv + '</div>');
-                        for(col=0x0;col<=0xFFFFFF;col++) {
+
+                        var i = 0, color;
+                        for (; i < 16777216; ++i) { // this is a BIG loop, will freeze/crash a browser!
+                            color = '#' + ('00000' + i.toString(16)).slice(-6); // pad to 6 digits
                             cont += 1;
-                            color = '#' + col;
+                            contGeneral += 1;
+
+                            if(contGeneral == 2000){
+                                break;
+                            }
+
+                            console.log(color);
+
                             if(cont == 500){
                                 cont = 0;
-                                colDiv = '<div style="width:10px; height:10px;background:' + color + '; float:left;"></div><div style="clear"both;"></div>';
+                                colDiv += '<div style="width:10px; height:10px;background:' + color + '; float:left;"></div><div style="clear"both;"></div>';
                             }
                             else{
-                                colDiv = '<div style="width:10px; height:10px;background:' + color + '; float:left;"></div>';
+                                colDiv += '<div style="width:10px; height:10px;background:' + color + '; float:left;"></div>';
                             }
-
-                            obj.append('<div class="colpick-popup">' + colDiv + '</div>');
                         }
 
+                        obj.append('<div class="colpick-popup">' + colDiv + '</div>');
                     }
                 });
             });
