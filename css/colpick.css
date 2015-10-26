@@ -5,12 +5,9 @@
 }
 
 .colpick-popup {
-    width: 200px;
-    height: 150px;
-    padding: 8px;
+    width: 256px;
+    height: 256px;
     position: absolute;
     top: 0;
     left: 20px;
-    background: #eaeaea;
-    border: 1px solid #adadad;
 }
