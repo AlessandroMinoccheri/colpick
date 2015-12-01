@@ -38,7 +38,7 @@ V 0.0.1
                         obj.find('.colpick-popup').remove();
                     }
                     else{
-                        obj.append('<div class="colpick-popup"><img src="../img/bg-gradient.png" /></div>');
+                        obj.append('<div class="colpick-popup"><img src="img/bg-gradient.png" /></div>');
                     }
                 });
             });
