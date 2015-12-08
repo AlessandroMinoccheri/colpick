@@ -11,3 +11,13 @@
     top: 0;
     left: 20px;
 }
+
+.colpick-select {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: url('../img/colorpicker_select.gif') no-repeat;
+    width: 11px;
+    height: 11px;
+    overflow: hidden;
+}

@@ -18,6 +18,7 @@ V 0.0.1
             return this.each(function () {
                 var o = options;
                 var obj = $(this);
+                var colpickPopup = '';
 
                 obj.css("background", o.color);
                 obj.css("width", o.width + 'px');
@@ -33,12 +34,25 @@ V 0.0.1
                 var colDiv = '';
                 var cont = 0;
                 var contGeneral = 0;                
-                obj.click(function(){
-                    if(obj.find('.colpick-popup').length > 0){
-                        obj.find('.colpick-popup').remove();
+                obj.click(function(event){
+                    var id = event.target.id;
+                    if((id != 'colpickPopup') && (id != 'colpickPopupImg')){
+                        if(obj.find('.colpick-popup').length > 0){
+                            obj.find('.colpick-popup').remove();
+                            colpickPopup = '';
+                        }
+                        else{
+                            obj.append('<div class="colpick-popup" id="colpickPopup"><img src="img/bg-gradient.png" id="colpickPopupImg" /><div class="colpick-select"></div></div>');
+                            colpickPopup = obj.find('.colpick-popup');
+                        }
                     }
                     else{
-                        obj.append('<div class="colpick-popup"><img src="img/bg-gradient.png" /></div>');
+                        var offset = obj.find('.colpick-popup').offset();
+                        var posX = (event.pageX - offset.left) - 5;
+                        var posY = (event.pageY - offset.top) - 5;
+
+                        obj.find('.colpick-select').css('left', posX);
+                        obj.find('.colpick-select').css('top', posY);
                     }
                 });
             });
